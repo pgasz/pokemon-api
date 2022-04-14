@@ -4,6 +4,10 @@ import {
     IoIosArrowBack as PreviousArrow,
     IoIosArrowForward as NextArrow,
 } from 'react-icons/io';
+import {
+    BsFillMoonFill as DarkMode,
+    BsFillBrightnessHighFill as LightMode,
+} from 'react-icons/bs';
 
 import Card from './Card';
 import PokemonDetails from './PokemonDetails';
@@ -11,6 +15,7 @@ import Loading from './Loading';
 
 const Main = () => {
     const pokemonDetailsContainer = useRef();
+    const themeElement = useRef();
     const [isPokemonDetailsActive, setisPokemonDetailsActive] = useState(false);
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,6 +23,7 @@ const Main = () => {
     const [nextUrl, setNextUrl] = useState('');
     const [previousUrl, setPreviousUrl] = useState('');
     const [pokeDetails, setPokeDetails] = useState();
+    const [darkMode, setDarkMode] = useState(false);
 
     const getPokemonDetails = async (res) => {
         res.map(async (item) => {
@@ -43,9 +49,14 @@ const Main = () => {
         fetchPokemons();
     }, [url]);
 
+    const darkModeHandler = () => {};
+
     return (
-        <>
+        <div id="theme" className={`${darkMode ? 'dark' : ''}`}>
             <h1 id="header">Choose Your Pokemon!</h1>
+            <div className="switch" onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? <LightMode /> : <DarkMode />}
+            </div>
             <main>
                 <div className="card-container">
                     {loading ? (
@@ -104,7 +115,7 @@ const Main = () => {
                     backFunction={() => setisPokemonDetailsActive(false)}
                 ></PokemonDetails>
             </section>
-        </>
+        </div>
     );
 };
 
