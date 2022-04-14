@@ -1,0 +1,236 @@
+/*
+=============== 
+Variables
+===============
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;700;900&display=swap');
+
+:root {
+    --primary-100: hsl(33, 91%, 90%);
+    --primary-200: hsl(33, 91%, 80%);
+    --primary-300: hsl(33, 91%, 70%);
+    --primary-400: hsl(33, 91%, 60%);
+    --primary-500: hsl(33, 91%, 50%);
+    --primary-600: hsl(33, 91%, 40%);
+    --primary-700: hsl(33, 91%, 30%);
+    --primary-800: hsl(33, 91%, 20%);
+    --primary-900: hsl(33, 91%, 10%);
+    --white: #fff;
+    --black: #222;
+    --transition: all 0.3s linear;
+    --radius: 0.25rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --max-width: 1200px;
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--primary-200);
+    color: var(--black);
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0rem auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 2rem;
+    box-shadow: var(--dark-shadow);
+    transition: var(--transition);
+    transform: scale(0.95);
+    width: 100%;
+    max-width: 320px;
+    height: fit-content;
+    &:hover {
+        transform: scale(1);
+    }
+    img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        box-shadow: var(--dark-shadow);
+    }
+    display: flex;
+    h4 {
+        margin-bottom: 0.15rem;
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+        text-shadow: var(--light-shadow);
+    }
+    a {
+        display: block;
+        color: var(--white);
+        text-shadow: var(--dark-shadow);
+        text-transform: uppercase;
+        text-decoration: none;
+        background: var(--primary-500);
+        font-size: 1rem;
+        letter-spacing: 2px;
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        box-shadow: var(--light-shadow);
+        cursor: pointer;
+        transition: var(--transition);
+        &:hover {
+            background: var(--primary-400);
+            color: var(--black);
+        }
+    }
+}
+.pokemon-details-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100%;
+    background-color: transparent;
+    transition: all 1s ease 0.2s;
+}
+.pokemon-details-container.active {
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.container {
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s ease-in-out;
+    height: auto;
+    max-height: 0px;
+    overflow: hidden;
+}
+.active {
+    max-height: 100% !important;
+}
+
+.container {
+    text-align: center;
+    width: 80vw;
+    margin: 3rem auto;
+    max-width: var(--max-width);
+    padding: 0rem 1rem;
+    h1 {
+        color: var(--black);
+        text-shadow: var(--light-shadow);
+        text-transform: capitalize;
+        line-height: 1.5;
+        margin-bottom: 2.5rem;
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+    .users {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0rem auto;
+        li {
+            width: 100%;
+            max-width: 320px;
+            margin: 0rem auto;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            padding: 2rem;
+            box-shadow: var(--dark-shadow);
+            transition: var(--transition);
+            transform: scale(0.95);
+            &:hover {
+                transform: scale(1);
+            }
+            img {
+                display: block;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+                box-shadow: var(--dark-shadow);
+            }
+            display: flex;
+            h4 {
+                margin-bottom: 0.15rem;
+                font-size: 1.5rem;
+                text-align: center;
+                text-transform: capitalize;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+                text-shadow: var(--light-shadow);
+            }
+            a {
+                display: block;
+                color: var(--white);
+                text-shadow: var(--dark-shadow);
+                text-transform: uppercase;
+                text-decoration: none;
+                background: var(--primary-500);
+                font-size: 1rem;
+                letter-spacing: 2px;
+                padding: 1rem 2rem;
+                border-radius: var(--radius);
+                box-shadow: var(--light-shadow);
+                cursor: pointer;
+                transition: var(--transition);
+                &:hover {
+                    background: var(--primary-400);
+                    color: var(--black);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        text-align: center;
+        width: 100%;
+        margin: 2rem auto;
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+        .users {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0rem auto;
+            li {
+                width: 100%;
+                max-width: 320px;
+                height: fit-content;
+                img {
+                }
+                h4 {
+                }
+                a {
+                }
+            }
+        }
+    }
+}
