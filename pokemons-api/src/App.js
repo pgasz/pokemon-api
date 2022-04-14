@@ -1,9 +1,5 @@
 import Main from './Components/Main';
-import './style/style.css';
-import './style/main.css';
-import './style/navigationButtons.css';
-import './style/pokemonDetails.css';
-import './style/card.css';
+import './style.css';
 
 function App() {
     return (
