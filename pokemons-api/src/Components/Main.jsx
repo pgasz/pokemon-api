@@ -1,18 +1,23 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
+import {
+    IoIosArrowBack as PreviousArrow,
+    IoIosArrowForward as NextArrow,
+} from 'react-icons/io';
 
 import Card from './Card';
 import PokemonDetails from './PokemonDetails';
+import Loading from './Loading';
 
 const Main = () => {
-    // const pokemonDetailsContainer = useRef();
-    // const [isPokemonDetailsActive, setisPokemonDetailsActive] = useState(false);
+    const pokemonDetailsContainer = useRef();
+    const [isPokemonDetailsActive, setisPokemonDetailsActive] = useState(false);
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
     const [nextUrl, setNextUrl] = useState('');
     const [previousUrl, setPreviousUrl] = useState('');
-    const [pokeDex, setPokeDex] = useState();
+    const [pokeDetails, setPokeDetails] = useState();
 
     const getPokemonDetails = async (res) => {
         res.map(async (item) => {
@@ -40,42 +45,64 @@ const Main = () => {
 
     return (
         <>
+            <h1 id="header">Choose Your Pokemon!</h1>
             <main>
-                <Card
-                    pokemonData={pokemonData}
-                    loading={loading}
-                    infoPokemon={(poke) => setPokeDex(poke)}
-                ></Card>
-
-                <div className="btn-group">
-                    {previousUrl ? (
-                        <button
-                            onClick={() => {
-                                setPokemonData([]);
-                                setUrl(previousUrl);
-                            }}
-                        >
-                            Previous
-                        </button>
+                <div className="card-container">
+                    {loading ? (
+                        <Loading />
                     ) : (
-                        ''
-                    )}
-                    {nextUrl ? (
-                        <button
-                            onClick={() => {
-                                setPokemonData([]);
-                                setUrl(nextUrl);
-                            }}
-                        >
-                            Next
-                        </button>
-                    ) : (
-                        ''
+                        pokemonData.map((item, id) => {
+                            return (
+                                <Card
+                                    key={id}
+                                    data={item}
+                                    infoPokemon={(pokemon) => {
+                                        setPokeDetails(pokemon);
+                                        setisPokemonDetailsActive(true);
+                                    }}
+                                />
+                            );
+                        })
                     )}
                 </div>
             </main>
-            <section className="pokemon-details-container active">
-                <PokemonDetails data={pokeDex}></PokemonDetails>
+            <button
+                className={`previous-btn navigation-button ${
+                    !previousUrl ? 'hide' : ''
+                }`}
+                onClick={() => {
+                    setPokemonData([]);
+                    setUrl(previousUrl);
+                }}
+            >
+                <PreviousArrow />
+            </button>
+            <button
+                className={`next-btn navigation-button ${
+                    !nextUrl ? 'hide' : ''
+                }`}
+                onClick={() => {
+                    setPokemonData([]);
+                    setUrl(nextUrl);
+                }}
+            >
+                <NextArrow />
+            </button>
+            <section
+                ref={pokemonDetailsContainer}
+                className={`pokemon-details-container ${
+                    isPokemonDetailsActive ? 'active' : ''
+                }`}
+                onClick={(e) => {
+                    if (e.target === pokemonDetailsContainer.current) {
+                        setisPokemonDetailsActive(false);
+                    }
+                }}
+            >
+                <PokemonDetails
+                    data={pokeDetails}
+                    backFunction={() => setisPokemonDetailsActive(false)}
+                ></PokemonDetails>
             </section>
         </>
     );

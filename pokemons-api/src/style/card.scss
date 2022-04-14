@@ -1,0 +1,157 @@
+.shadow {
+    --type-bg-color: #000000cc;
+    --type-text-color: #222;
+}
+.unknown {
+    --type-bg-color: #706969;
+    --type-text-color: #222;
+}
+.fairy {
+    --type-bg-color: #ec8de3;
+    --type-text-color: #ffffff;
+}
+.dark {
+    --type-bg-color: #615f70;
+    --type-text-color: #222;
+}
+.dragon {
+    --type-bg-color: #057fbc;
+    --type-text-color: #ffffff;
+}
+.ice {
+    --type-bg-color: #8ad8d1;
+    --type-text-color: #ffffff;
+}
+.psychic {
+    --type-bg-color: #fa8684;
+    --type-text-color: #ffffff;
+}
+.electric {
+    --type-bg-color: #f4d23d;
+    --type-text-color: #ffffff;
+}
+.grass {
+    --type-bg-color: #60b953;
+    --type-text-color: #ffffff;
+}
+.water {
+    --type-bg-color: #5397d7;
+    --type-text-color: #ffffff;
+}
+.fire {
+    --type-bg-color: #ff9e53;
+    --type-text-color: #ffffff;
+}
+.steel {
+    --type-bg-color: #53879c;
+    --type-text-color: #222;
+}
+.ghost {
+    --type-bg-color: #566ab0;
+    --type-text-color: #ffffff;
+}
+.bug {
+    --type-bg-color: #92c22d;
+    --type-text-color: #ffffff;
+}
+.rock {
+    --type-bg-color: #c7b78b;
+    --type-text-color: #222;
+}
+.ground {
+    --type-bg-color: #d87746;
+    --type-text-color: #ffffff;
+}
+.poison {
+    --type-bg-color: #a666c8;
+    --type-text-color: #ffffff;
+}
+.flying {
+    --type-bg-color: #a1bbeb;
+    --type-text-color: #ffffff;
+}
+.normal {
+    --type-bg-color: #9099a1;
+    --type-text-color: #ffffff;
+}
+.fighting {
+    --type-bg-color: #d44161;
+    --type-text-color: #ffffff;
+}
+.card__wrap--outer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 320px;
+}
+.card {
+    flex-grow: 1;
+    width: 100%;
+    margin: 0rem auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: var(--dark-shadow);
+    transition: var(--transition);
+    transform: scale(0.95);
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    &:hover {
+        transform: scale(1);
+    }
+    .id {
+        position: absolute;
+        left: 10px;
+        top: 5px;
+    }
+    img {
+        padding: 1.5rem;
+        object-fit: contain;
+        display: block;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        box-shadow: var(--dark-shadow);
+    }
+
+    .name {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1.5;
+        margin: 0.5rem 0rem;
+        text-shadow: var(--light-shadow);
+    }
+    .types {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        h3 {
+            color: var(--type-text-color);
+            background: var(--type-bg-color);
+            display: block;
+            text-shadow: var(--dark-shadow);
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            padding: 0.5rem 1rem;
+            border-radius: 1000px;
+            box-shadow: var(--light-shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0rem 0.25rem;
+        }
+    }
+}

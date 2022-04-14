@@ -1,13 +1,12 @@
 import React from 'react';
 
-const PokemonDetails = ({ data }) => {
+const PokemonDetails = ({ data, backFunction }) => {
     return (
-        <>
-            {console.log(data)}
+        <article className="container">
             {!data ? (
                 ''
             ) : (
-                <article className="container">
+                <div className="content">
                     <h1>{data.name}</h1>
                     <img
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`}
@@ -18,16 +17,6 @@ const PokemonDetails = ({ data }) => {
                             return <h2 key={id}>{item.ability.name}</h2>;
                         })}
                     </div>
-                    <div className="base-stat">
-                        {data.stats.map((item, id) => {
-                            return (
-                                <h2 key={id}>
-                                    {item.stat.name}:{' '}
-                                    <span>{item.base_stat}</span>
-                                </h2>
-                            );
-                        })}
-                    </div>
                     <div className="measurements">
                         <h2>
                             weight: <span>{data.weight}</span>
@@ -36,9 +25,17 @@ const PokemonDetails = ({ data }) => {
                             height: <span>{data.height}</span>
                         </h2>
                     </div>
-                </article>
+                    <div
+                        className="back-button"
+                        onClick={() => {
+                            backFunction();
+                        }}
+                    >
+                        BACK
+                    </div>
+                </div>
             )}
-        </>
+        </article>
     );
 };
 

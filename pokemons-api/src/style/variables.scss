@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;700;900&display=swap');
+
+:root {
+    --primary-100: hsl(33, 91%, 90%);
+    --primary-200: hsl(33, 91%, 80%);
+    --primary-300: hsl(33, 91%, 70%);
+    --primary-400: hsl(33, 91%, 60%);
+    --primary-500: hsl(33, 91%, 50%);
+    --primary-600: hsl(33, 91%, 40%);
+    --primary-700: hsl(33, 91%, 30%);
+    --primary-800: hsl(33, 91%, 20%);
+    --primary-900: hsl(33, 91%, 10%);
+    --white: #fff;
+    --black: #222;
+    --light-gray: #f1f5f8;
+    --red: #bd0303;
+    --green: #476a2e;
+    --mainTransition: all 0.4s ease;
+    --radius: 0.25rem;
+    --transition: all 0.3s linear;
+    --radius: 0.25rem;
+    --spacing: 0.25rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+    --box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    --box-hover-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    --button-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    --max-width: 1200px;
+}
+
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$maxWidth: 1200px;
