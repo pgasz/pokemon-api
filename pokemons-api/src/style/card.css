@@ -158,6 +158,7 @@
   position: absolute;
   left: 10px;
   top: 5px;
+  color: var(--black);
 }
 
 .card img {
@@ -180,6 +181,7 @@
   line-height: 1.5;
   margin: 0.5rem 0rem;
   text-shadow: var(--light-shadow);
+  color: var(--black);
 }
 
 .card .types {

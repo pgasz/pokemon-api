@@ -15,7 +15,6 @@ import Loading from './Loading';
 
 const Main = () => {
     const pokemonDetailsContainer = useRef();
-    const themeElement = useRef();
     const [isPokemonDetailsActive, setisPokemonDetailsActive] = useState(false);
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -49,12 +48,10 @@ const Main = () => {
         fetchPokemons();
     }, [url]);
 
-    const darkModeHandler = () => {};
-
     return (
         <div id="theme" className={`${darkMode ? 'dark' : ''}`}>
             <h1 id="header">Choose Your Pokemon!</h1>
-            <div className="switch" onClick={() => setDarkMode(!darkMode)}>
+            <div id="switch" onClick={() => setDarkMode(!darkMode)}>
                 {darkMode ? <LightMode /> : <DarkMode />}
             </div>
             <main>
